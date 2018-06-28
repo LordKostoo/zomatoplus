@@ -31,7 +31,7 @@ public class RestuarentController {
 		return persistedRest;
 	}
 
-	@GetMapping("getall")
+	@GetMapping("/getall")
 	public List<Restuarent> ListAllRestuarent() {
 		List<Restuarent> listofrests = restaurantRepository.findAll();
 		return listofrests;
@@ -52,6 +52,10 @@ public Item AddItem(@RequestBody Item items) {
 	public Item finditem(@RequestBody Item items) {
 		Item persistItem= itemRepository.findByRestaurantIdAndName(items.getRestaurantId(), items.getName());
 		return persistItem;
-	}
-
+	}	
+		@GetMapping("/getallitem")
+		public List<Item> ListAllItem() {
+			List<Item> listofitem = itemRepository.findAll();
+			return listofitem;
+		}
 }
